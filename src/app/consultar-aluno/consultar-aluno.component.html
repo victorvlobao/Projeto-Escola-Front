@@ -1,0 +1,38 @@
+<h1>Consulta de Alunos</h1>
+<h5>Lista dos alunos cadastrados</h5>
+
+<table class="table table-dark table-striped" style="border: 2px solid rgb(255, 255, 255);
+border-radius: 25px;">
+  <thead>
+        <tr>
+            <td>Nome do aluno</td>
+            <td>Endereço</td>
+            <td>Opções</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let a of aluno">
+          <td>{{a.nome}}</td>
+          <td>{{a.endereco}}</td>
+
+          <td>
+            <button class="btn btn-sm btn-primary mr"
+            [routerLink]="['/editar-aluno',a.idAluno]">
+              Editar
+            </button>
+
+              &nbsp;
+
+            <button class="btn btn-sm btn-danger" (click)="excluir(a.idAluno)">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="6">Total de registros: {{aluno.length}}  </td>
+        </tr>
+    </tfoot>
+</table>
+

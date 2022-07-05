@@ -1,0 +1,40 @@
+<h1>Cadastro de Turmas</h1>
+<h5>Preencha os campos para cadastro da turma</h5>
+
+
+<form class="s" [formGroup]="formCadastro" (ngSubmit)="onSubmit()">
+
+<div *ngIf="mensagem" class="mb-3 alert alert-primary">
+
+  <strong>{{mensagem}}</strong>
+
+</div>
+
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="floatingInput" formControlName="ano" placeholder="name@example.com">
+    <label for="floatingInput">Ano</label>
+    <div class="text-danger" *ngIf="form.ano.touched && form.ano.invalid">
+      <span *ngIf="form.ano.errors.required">
+          Informe o ano da turma
+      </span>
+    </div>
+  </div>
+  <div class="form-floating" style="padding-bottom: 15px;">
+    <input type="text" class="form-control" id="floatingPassword" formControlName="semestre" placeholder="Password">
+    <label for="floatingPassword">Semestre</label>
+    <div class="text-danger" *ngIf="form.semestre.touched && form.semestre.invalid">
+      <span *ngIf="form.semestre.errors.required">
+          Informe o semestre da turma
+      </span>
+    </div>
+  </div>
+
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <input type="submit" [disabled]="!formCadastro.valid" class="btn btn-success"
+            value="Realizar o Cadastro">
+        </div>
+    </div>
+
+</form>
+

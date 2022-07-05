@@ -1,0 +1,37 @@
+<h1>Consulta de Turmas</h1>
+<h5>Lista das turmas cadastrados</h5>
+
+<table class="table table-dark table-striped" style="border: 2px solid rgb(255, 255, 255);
+border-radius: 25px;">
+  <thead>
+        <tr>
+            <td>Ano da Turma</td>
+            <td>Semestre da Turma</td>
+            <td>Opções</td>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let t of turma">
+          <td>{{t.ano}}</td>
+          <td>{{t.semestre}}</td>
+
+          <td>
+            <button class="btn btn-sm btn-primary mr"
+            [routerLink]="['/editar-turma',t.idTurma]">
+              Editar
+            </button>
+
+              &nbsp;
+
+            <button class="btn btn-sm btn-danger" (click)="excluir(t.idTurma)">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="6">Total de registros: {{turma.length}}  </td>
+        </tr>
+    </tfoot>
+</table>
+
